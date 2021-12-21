@@ -1,8 +1,10 @@
-import React, {useState} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import {globalStyle} from "./styles/style";
+import React from 'react';
+import {StyleSheet} from 'react-native';
 import AppLoading from 'expo-app-loading';
 import {useFonts} from "expo-font";
+import {NavigationContainer} from "@react-navigation/native";
+import BottomTabs from "./navigation/BottomTabs";
+import StackAccount from "./navigation/StackAccount";
 
 
 export default function App() {
@@ -16,18 +18,12 @@ export default function App() {
         return <AppLoading />;
     } else {
         return (
-              <View style={styles.mainContainer}>
-                <Text style={globalStyle.text}>Havchik</Text>
-              </View>
+            <BottomTabs />
           );
     }
 }
 
 const styles = StyleSheet.create({
-    mainContainer:{
-        flex: 1,
-        alignItems: 'center',
-        backgroundColor: 'green'
-    }
+
 });
 
