@@ -32,7 +32,7 @@ export default function ByIngredientsScreen({navigation} ) {
 
                     <Button
                         mode="contained"
-                        onPress={() => {navigation.navigate('By Ingredients Search', {ingredients: ["ds", "ew"]});}}
+                        onPress={() => {navigation.navigate('By Ingredients Search', {ingredients: texts});}}
                         style={styles.button}
                     >
                         Search
