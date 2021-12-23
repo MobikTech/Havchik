@@ -1,28 +1,40 @@
 import {createStackNavigator} from '@react-navigation/stack'
-import Register from "../components/account/Register";
-import Login from "../components/account/Login";
-import SearchScreen from "../components/SearchScreen";
-import {StyleSheet, TextInput, View} from "react-native";
-import ViewNativeComponent from "react-native/Libraries/Components/View/ViewNativeComponent";
+import SearchScreen from "../screens/search/SearchScreen";
+import DetailsScreen from "../screens/search/DetailsScreen";
+import {StyleSheet} from "react-native";
+import ByIngredientsScreen from "../screens/search/ByIngredientsScreen";
+import ByIngredientsSearchScreen from "../screens/search/ByIngredientsSearchScreen";
 
 const Stack = createStackNavigator()
 
 export default function StackSearch(){
     return(
         <Stack.Navigator>
-            <Stack.Screen
-                name={'Search'}
-                component={SearchScreen}
-                options={{
-                    header: () => (
-                        <ViewNativeComponent style={styles.searchHeader}>
-                            <TextInput style={styles.searchField} />
-                        </ViewNativeComponent>
-                    )
+            <Stack.Screen name={'Search'} component={SearchScreen} options={{headerShown: false}} />
+            <Stack.Screen name={'Details'} component={DetailsScreen} />
+            <Stack.Screen name={'By Ingredients'} component={ByIngredientsScreen} />
+            <Stack.Screen name={'By Ingredients Search'} component={ByIngredientsSearchScreen} />
 
-            }}/>
-            {/*<Stack.Screen name={'Register'} component={Register} options={{title: 'Sign up'}} />*/}
-            {/*<Stack.Screen name={'Log in'} component={Login} options={{title: 'Log in'}} />*/}
+
+            {/*<Stack.Screen name={'Second'} component={Login}  />*/}
+
+            {/*// options={{*/}
+                {/*//     header: () => (*/}
+                {/*//*/}
+                {/*//         <View style={styles.searchHeader}>*/}
+                {/*//             <TextInput style={styles.searchField} onChangeText={setSearchText} value={searchText} placeholder={'default'}/>*/}
+                {/*//             <Button onPress={() => setSearchRequest(searchText)} title={'Search'} />*/}
+                {/*//         </View>*/}
+                {/*//     )*/}
+                {/*// }}*/}
+            {/*>*/}
+            {/*    {props => <SearchScreen {...props} searchRequest={searchRequest} />}*/}
+            {/*</Stack.Screen>*/}
+            {/*<Stack.Screen*/}
+            {/*    name={'Details'}*/}
+            {/*    component={DetailsScreen}*/}
+            {/*/>*/}
+
         </Stack.Navigator>
 
     );

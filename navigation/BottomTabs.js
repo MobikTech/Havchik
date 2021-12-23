@@ -1,11 +1,10 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
-import SearchScreen from '../components/SearchScreen'
-import AccountScreen from '../components/AccountScreen'
-import {View, Image, Text, StyleSheet} from "react-native";
+import {StyleSheet} from "react-native";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {NavigationContainer} from "@react-navigation/native";
 import StackAccount from "./StackAccount";
 import StackSearch from "./StackSearch";
+import StackSaved from "./StackSaved";
 
 const Tab = createBottomTabNavigator()
 
@@ -18,14 +17,13 @@ export default function BottomTabs(){
                         let iconName;
 
                         if (route.name === 'Search') {
-                            // iconName = focused
-                            //     ? 'ios-information-circle'
-                            //     : 'search';
                             iconName = 'search'
                         } else if (route.name === 'Account') {
-                            // iconName = focused ? 'ios-list-box' : 'ios-list';
                             iconName = 'people'
+                        } else if (route.name === 'Saved') {
+                            iconName = 'bookmark'
                         }
+
 
                         // You can return any component that you like here!
                         return <Ionicons name={iconName} size={size} color={color} />;
@@ -36,6 +34,7 @@ export default function BottomTabs(){
                 })}
             >
                 <Tab.Screen name={'Search'} component={StackSearch} options={{headerShown: false}} />
+                <Tab.Screen name={'Saved'} component={StackSaved} options={{headerShown: false}} />
                 <Tab.Screen name={'Account'} component={StackAccount} options={{headerShown: false}} />
             </Tab.Navigator>
         </NavigationContainer>
